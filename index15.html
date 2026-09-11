@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>grid</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+      }
+      div {
+        border: 2px solid black;
+      }
+      .container {
+      
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap:5px;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+      }
+      .red {
+        background-color: rgb(233, 12, 12);
+      }
+      .green {
+        background-color: rgb(35, 184, 35);
+      }
+      .yellow {
+        background-color: rgb(224, 224, 21);
+      }
+      .sidebar{
+        grid-row:1/4;
+      }
+      .header{
+        grid-column:2/4;
+      }
+      .sidebar1{
+        grid-row:2/4;
+        grid-column:4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box center sidebar green">1</div>
+      <div class="box center header green">2</div>
+      <div class="box center red">3</div>
+      <div class="box center yellow">4</div>
+      <div class="box center red">5</div>
+      <div class="box center sidebar1 green">6</div>
+      <div class="box center red">7</div>
+      <div class="box center yellow">8</div>
+    </div>
+  </body>
+</html>

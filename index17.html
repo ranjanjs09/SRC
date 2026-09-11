@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Grid Complete Examples</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    .item {
+      background: lightblue;
+      border: 2px solid black;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* ================================================= */
+    /* 1. grid-template-columns */
+    /* ================================================= */
+
+    .columns-example {
+      display: grid;
+      grid-template-columns: 200px 300px 200px;
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 2. grid-template-rows */
+    /* ================================================= */
+
+    .rows-example {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 100px 200px 100px;
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 3. gap */
+    /* ================================================= */
+
+    .gap-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* ================================================= */
+    /* 4. row-gap / column-gap */
+    /* ================================================= */
+
+    .row-column-gap-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 30px;
+      column-gap: 60px;
+    }
+
+    /* ================================================= */
+    /* 5. fr unit */
+    /* ================================================= */
+
+    .fr-example {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 6. repeat() */
+    /* ================================================= */
+
+    .repeat-example {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 7. minmax() */
+    /* ================================================= */
+
+    .minmax-example {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 8. auto-fill */
+    /* ================================================= */
+
+    .fill-example {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(150px, 1fr)
+      );
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 9. auto-fit */
+    /* ================================================= */
+
+    .fit-example {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(150px, 1fr)
+      );
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 10. grid-auto-rows */
+    /* ================================================= */
+
+    .auto-rows-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 11. grid-auto-flow */
+    /* ================================================= */
+
+    .auto-flow-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: row;
+      gap: 10px;
+    }
+
+    .auto-flow-column {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 80px);
+      grid-auto-flow: column;
+      gap: 10px;
+    }
+
+    /* ================================================= */
+    /* 12. justify-items */
+    /* ================================================= */
+
+    .justify-items-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+      gap: 10px;
+      height: 150px;
+    }
+
+    /* ================================================= */
+    /* 13. align-items */
+    /* ================================================= */
+
+    .align-items-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      gap: 10px;
+      height: 150px;
+    }
+
+    /* ================================================= */
+    /* 14. place-items */
+    /* ================================================= */
+
+    .place-items-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+      gap: 10px;
+      height: 150px;
+    }
+
+    /* ================================================= */
+    /* 15. justify-content */
+    /* ================================================= */
+
+    .justify-content-example {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      justify-content: center;
+      gap: 10px;
+      height: 150px;
+    }
+
+    /* ================================================= */
+    /* 16. align-content */
+    /* ================================================= */
+
+    .align-content-example {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      align-content: center;
+      gap: 10px;
+      height: 250px;
+    }
+
+    /* ================================================= */
+    /* 17. grid-column */
+    /* ================================================= */
+
+    .grid-column-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .grid-column-example .item1 {
+      grid-column: 1 / 4;
+    }
+
+    /* ================================================= */
+    /* 18. grid-row */
+    /* ================================================= */
+
+    .grid-row-example {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 100px);
+      gap: 10px;
+    }
+
+    .grid-row-example .item1 {
+      grid-row: 1 / 4;
+    }
+
+    /* ================================================= */
+    /* 19. span */
+    /* ================================================= */
+
+    .span-example {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .span-example .item1 {
+      grid-column: span 2;
+    }
+
+    /* ================================================= */
+    /* 20. grid-area */
+    /* ================================================= */
+
+    .grid-area-example {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 100px);
+      gap: 10px;
+    }
+
+    .grid-area-example .item1 {
+      grid-area: 1 / 2 / 3 / 4;
+    }
+
+    /* ================================================= */
+    /* 21. grid-template-areas */
+    /* ================================================= */
+
+    .dashboard {
+      display: grid;
+
+      grid-template-columns: 180px 1fr;
+
+      grid-template-rows: 70px 1fr 60px;
+
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+      gap: 10px;
+
+      min-height: 400px;
+    }
+
+    .dashboard-header {
+      grid-area: header;
+      background: lightcoral;
+      display: grid;
+      place-items: center;
+    }
+
+    .dashboard-sidebar {
+      grid-area: sidebar;
+      background: lightgreen;
+      display: grid;
+      place-items: center;
+    }
+
+    .dashboard-main {
+      grid-area: main;
+      background: lightblue;
+      display: grid;
+      place-items: center;
+    }
+
+    .dashboard-footer {
+      grid-area: footer;
+      background: lightyellow;
+      display: grid;
+      place-items: center;
+    }
+
+    /* ================================================= */
+    /* 22. Dense */
+    /* ================================================= */
+
+    .dense-example {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-flow: dense;
+      gap: 10px;
+    }
+
+    .dense-example .big {
+      grid-column: span 2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS GRID – Complete Examples</h1>
+
+  <!-- ================================================= -->
+  <!-- 1 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>1. grid-template-columns</h2>
+
+    <div class="columns-example">
+      <div class="item">200px</div>
+      <div class="item">300px</div>
+      <div class="item">200px</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 2 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>2. grid-template-rows</h2>
+
+    <div class="rows-example">
+      <div class="item">100px</div>
+      <div class="item">200px</div>
+      <div class="item">100px</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 3 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>3. gap</h2>
+
+    <div class="gap-example">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 4 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>4. row-gap + column-gap</h2>
+
+    <div class="row-column-gap-example">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 5 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>5. fr Unit</h2>
+
+    <div class="fr-example">
+      <div class="item">1fr</div>
+      <div class="item">2fr</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 6 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>6. repeat()</h2>
+
+    <div class="repeat-example">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 7 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>7. minmax()</h2>
+
+    <div class="minmax-example">
+      <div class="item">HTML</div>
+      <div class="item">CSS</div>
+      <div class="item">JS</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 8 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>8. auto-fill</h2>
+
+    <div class="fill-example">
+      <div class="item">HTML</div>
+      <div class="item">CSS</div>
+      <div class="item">REACT</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 9 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>9. auto-fit</h2>
+
+    <div class="fit-example">
+      <div class="item">HTML</div>
+      <div class="item">CSS</div>
+      <div class="item">REACT</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 10 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>10. grid-auto-rows</h2>
+
+    <div class="auto-rows-example">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 11 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>11. grid-auto-flow: row</h2>
+
+    <div class="auto-flow-row">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+
+    <br />
+
+    <h2>grid-auto-flow: column</h2>
+
+    <div class="auto-flow-column">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 12 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>12. justify-items</h2>
+
+    <div class="justify-items-example">
+      <div class="item">HTML</div>
+      <div class="item">CSS</div>
+      <div class="item">JS</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 13 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>13. align-items</h2>
+
+    <div class="align-items-example">
+      <div class="item">HTML</div>
+      <div class="item">CSS</div>
+      <div class="item">JS</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 14 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>14. place-items</h2>
+
+    <div class="place-items-example">
+      <div class="item">HTML</div>
+      <div class="item">CSS</div>
+      <div class="item">JS</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 15 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>15. justify-content</h2>
+
+    <div class="justify-content-example">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 16 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>16. align-content</h2>
+
+    <div class="align-content-example">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 17 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>17. grid-column</h2>
+
+    <div class="grid-column-example">
+      <div class="item item1">HEADER</div>
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 18 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>18. grid-row</h2>
+
+    <div class="grid-row-example">
+      <div class="item item1">SIDEBAR</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 19 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>19. grid-column: span</h2>
+
+    <div class="span-example">
+      <div class="item item1">SPAN 2 COLUMNS</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 20 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>20. grid-area</h2>
+
+    <div class="grid-area-example">
+      <div class="item item1">BIG BOX</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 21 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>21. grid-template-areas</h2>
+
+    <div class="dashboard">
+
+      <div class="dashboard-header">
+        HEADER
+      </div>
+
+      <div class="dashboard-sidebar">
+        SIDEBAR
+      </div>
+
+      <div class="dashboard-main">
+        MAIN CONTENT
+      </div>
+
+      <div class="dashboard-footer">
+        FOOTER
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================= -->
+  <!-- 22 -->
+  <!-- ================================================= -->
+
+  <div class="section">
+    <h2>22. grid-auto-flow: dense</h2>
+
+    <div class="dense-example">
+
+      <div class="item big">
+        BIG 1
+      </div>
+
+      <div class="item">
+        2
+      </div>
+
+      <div class="item">
+        3
+      </div>
+
+      <div class="item">
+        4
+      </div>
+
+      <div class="item big">
+        BIG 5
+      </div>
+
+      <div class="item">
+        6
+      </div>
+
+      <div class="item">
+        7
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
